@@ -1,0 +1,31 @@
+# -*- coding: cp1252 -*-
+ 
+# ALLTERCHARCOUNT
+        # Contador de caracteres.
+        # Originalmente escrita com Textatic e interpretada com PyPad (que sempre travava na 1ª execução), desenvolvida usando um iPad 2 no meio do mato por Steven Castro Conte, estudante de Direito, supervisionado por Gabriel de Souza Costa, estudante de TADS. Posteriormente revisada com o maravilhoso Pythonista.
+        # Licença Creative Commons 3.0 - Permitida a reprodução total ou parcial, desde que mencionada a autoria.
+ 
+import math
+import console
+console.clear()
+ 
+# CAMPO DE TEXTO
+while True:
+        print 10 * "=","AllterChartCount", 11 * "="
+        txt = raw_input("Digite o seu texto aqui: \n")
+       
+        # RETORNO
+        print 39 * "-"
+        print "Seu texto possui", len(txt), "caracteres \nocupando %.2f byte(s) na memória." %(len(txt) / 8.0)
+       
+        # TWITTER FRIENDLY
+        # Informa se o texto cabe ou não em um tweet.
+        if len(txt) <= 140:
+                while True:
+                        print "Inclusive cabe em um tweet. :)\n"
+                        break
+                       
+        elif len(txt) > 140:
+                while True:
+                        print "Infelizmente não cabe em um tweet. :(\n"
+                        break
