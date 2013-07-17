@@ -1,0 +1,56 @@
+# -*- coding: cp1252 -*-
+ 
+# ALLTERIMC
+        # Calculadora para obtenção de Indice de Massa Corporal com breve análise de resultado.
+        # Originalmente escrita com Textatic e interpretada com PyPad (que sempre travava na 1ª execução), desenvolvida usando um iPad 2 no meio do mato por Steven Castro Conte, estudante de Direito, supervisionado por Gabriel de Souza Costa, estudante de TADS. Posteriormente revisada com o maravilhoso Pythonista.
+        # Licença Creative Commons 3.0 - Permitida a reprodução total ou parcial, desde que mencionada a autoria.
+ 
+import math
+import console
+console.clear()
+ 
+# FORMULA IMC
+def imc( x , y ):
+        indice = ( x / ( y ** 2 ))
+        return indice
+ 
+# MENU PRINCIPAL
+while True:
+        console.clear()
+        print 15 * "=","AllterIMC", 16 * "="
+        x = float(raw_input("Digite o peso, em quilos: \n"))
+        y = float(raw_input("Digite a altura, em metros: \n"))
+        ind = imc( x , y )
+        print "Seu Indice de Massa Corporal e: %.2f" % ind
+       
+        if ind < 18:
+                print "Você está abaixo do peso."
+                print 14 * "-*-"
+       
+        elif ind >= 18 and ind < 25:
+                print "Seu peso é ideal."
+                print 14 * "-*-"
+       
+        elif ind >= 25 and ind < 30:
+                print "Você está com sobrepeso. Alerta!"
+                print 14 * "-*-"
+       
+        elif ind >= 30:
+                print "Você está obeso."
+                print 14 * "-*-"
+       
+        # RETORNO
+        print "Selecione uma das opções abaixo:"
+        print "  [Qualquer nº exceto '0'] Novo cálculo"
+        print "  [         ' 0 '        ] Sair"
+        print 42 * "-"
+       
+        opc = int(raw_input("Digite a operação desejada: \n"))
+       
+        if opc != 0:
+                continue
+       
+        # ENCERRAMENTO
+        elif opc == 0:
+                print 15 * "-","finalizado",15 * "-"
+                break
