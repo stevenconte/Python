@@ -1,0 +1,265 @@
+# -*- coding: cp1252 -*-
+ 
+# ALLTERCONVERTION
+        # Conversor para medidas de distância, massa, temperatura, tempo, velocidade e volume.
+        # Originalmente escrita com Textatic e interpretada com PyPad (que sempre travava na 1ª execução), desenvolvida usando um iPad 2 no meio do mato por Steven Castro Conte, estudante de Direito, supervisionado por Gabriel de Souza Costa, estudante de TADS. Posteriormente revisada com o maravilhoso Pythonista.
+        # Licença Creative Commons 3.0 - Permitida a reprodução total ou parcial, desde que mencionada a autoria.
+ 
+import math
+import console
+console.clear()
+ 
+# MENU PRINCIPAL
+while True:
+        console.clear()
+        print 12 * "=","AllterConvertion", 12 * "="
+        print 2*"\t","[1]  Distância"
+        print 2*"\t","[2]  Massa"
+        print 2*"\t","[3]  Temperatura"
+        print 2*"\t","[4]  Tempo"
+        print 2*"\t","[5]  Velocidade"
+        print 2*"\t","[6]  Volume"
+        print 2*"\t","[0]  Sair"
+        print 42 * "="
+       
+        opc = int(raw_input("Digite a categoria desejada: \n"))
+       
+        # DISTÂNCIA
+        if opc == 1:
+               
+                while True:
+                        print 15 * "-","Distância ", 15 * "-"
+                        print 2*"\t","[1]  Quilômetros - Milhas"
+                        print 2*"\t","[2]  Milhas - Quilômetros"
+                        print 2*"\t","[0]  Voltar para categorias"
+                        print 42 * "="
+                       
+                        opc = int(raw_input("Digite a conversão desejada: \n"))
+                       
+                        # QUILÔMETROS POR MILHAS
+                        if opc == 1:
+                                print 5 * "- ","Quilômetros - Milhas", 5 * " -"
+                                x = float(raw_input("Digite o valor em quilômetros: \n"))
+                                print x,"quilômetros equivalem a %.3f milhas." %( x * 0.621 )
+                                print 14 * "-*-"
+                       
+                        # MILHAS POR QUILÔMETROS
+                        elif opc == 2:
+                                print 5 * "- ","Milhas - Quilômetros", 5 * " -"
+                                x = float(raw_input("Digite o valor em milhas: \n"))
+                                print x,"milhas equivalem a %.3f quilômetros." %( x * 1.609 )
+                                print 14 * "-*-"
+                       
+                        elif opc > 2 or opc < 0:
+                                print 42 * "-"
+                                print "Selecione uma das opções abaixo:"
+                               
+                        elif opc == 0:
+                                break
+       
+        # MASSA
+        elif opc == 2:
+               
+                while True:
+                        print 17 * "-","Massa", 18 * "-"
+                        print 2*"\t","[1]  Quilos - Libras"
+                        print 2*"\t","[2]  Libras - Quilos"
+                        print 2*"\t","[0]  Voltar para categorias"
+                        print 42 * "="
+                       
+                        opc = int(raw_input("Digite a conversão desejada: \n"))
+                       
+                        # QUILOS POR LIBRAS
+                        if opc == 1:
+                                print 6 * "- ","Quilos - Libras ", 6 * " -"
+                                x = float(raw_input("Digite o valor em quilos: \n"))
+                                print x,"quilos equivalem a %.3f libras." %( x * 2.204 )
+                                print 14 * "-*-"
+                       
+                        # LIBRAS POR QUILOS
+                        elif opc == 2:
+                                print 6 * "- ","Libras - Quilos ", 6 * " -"
+                                x = float(raw_input("Digite o valor em libras: \n"))
+                                print x,"libras equivalem a %.3f quilos." %( x * 0.453 )
+                                print 14 * "-*-"
+                       
+                        elif opc > 2 or opc < 0:
+                                print 42 * "-"
+                                print "Selecione uma das opções abaixo:"
+                               
+                        elif opc == 0:
+                                break
+       
+        # TEMPERATURA
+        elif opc == 3:
+               
+                while True:
+                        print 14 * "-","Temperatura ", 14 * "-"
+                        print 2*"\t","[1]  Celsius - Fahrenheit"
+                        print 2*"\t","[2]  Fahrenheit - Celsius"
+                        print 2*"\t","[0]  Voltar para categorias"
+                        print 42 * "="
+                       
+                        opc = int(raw_input("Digite a conversão desejada: \n"))
+                       
+                        # CELSIUS POR FAHRENHEIT
+                        if opc == 1:
+                                print 5 * "- ","Celsius - Fahrenheit", 5 * " -"
+                                x = float(raw_input("Digite o valor em graus Celsius: \n"))
+                                print x,"graus Celsius equivalem a \n%.1f graus Fahrenheit." %(( x * 1.8 ) + 32)
+                                print 14 * "-*-"
+                       
+                        # FAHRENHEIT POR CELSIUS
+                        elif opc == 2:
+                                print 5 * "- ","Celsius - Fahrenheit", 5 * " -"
+                                x = float(raw_input("Digite o valor em graus Fahrenheit: \n"))
+                                print x,"graus Fahrenheit equivalem a \n%.1f graus Celsius." %(( x - 32 ) / 1.8)
+                                print 14 * "-*-"
+                       
+                        elif opc > 2 or opc < 0:
+                                print 42 * "-"
+                                print "Selecione uma das opções abaixo:"
+                               
+                        elif opc == 0:
+                                break
+       
+        # TEMPO
+        elif opc == 4:
+               
+                while True:
+                        print 17 * "-","Tempo ", 17 * "-"
+                        print 2*"\t","[1]  Horas - Segundos"
+                        print 2*"\t","[2]  Segundos - Horas"
+                        print 2*"\t","[0]  Voltar para categorias"
+                        print 42 * "="
+                       
+                        opc = int(raw_input("Digite a conversão desejada: \n"))
+                       
+                        # HORAS POR SEGUNDO
+                        if opc == 1:
+                                print 6 * "- ","Horas - Segundos ", 6 * "- "
+                                x = float(raw_input("Digite o valor em horas: \n"))
+                                print x,"horas equivalem a %.2f segundos." %( x * 3600 )
+                                print 14 * "-*-"
+                       
+                        # SEGUNDOS POR HORAS
+                        elif opc == 2:
+                                print 6 * "- ","Segundos - Horas ", 6 * "- "
+                                x = float(raw_input("Digite o valor em segundos: \n"))
+                                print x,"segundos equivalem a %.2f horas." %( x * 0.000277778 )
+                                print 14 * "-*-"
+                       
+                        elif opc > 2 or opc < 0:
+                                print 42 * "-"
+                                print "Selecione uma das opções abaixo:"
+                               
+                        elif opc == 0:
+                                break
+       
+        # VELOCIDADE
+        elif opc == 5:
+               
+                while True:
+                        print 15 * "-","Velocidade", 15 * "-"
+                        print 2*"\t","[1]  KM/H - MPH"
+                        print 2*"\t","[2]  KM/H - MPS"
+                        print 2*"\t","[3]  MPH - KM/H"
+                        print 2*"\t","[4]  MPH - MPS"
+                        print 2*"\t","[5]  MPS - KM/H"
+                        print 2*"\t","[6]  MPS - MPH"
+                        print 2*"\t","[0]  Voltar para categorias"
+                        print 42 * "="
+                       
+                        opc = int(raw_input("Digite a conversao desejada: \n"))
+                       
+                        # QUILÔMETROS POR HORA EM MILHAS POR HORA
+                        if opc == 1:
+                                print 7 * "- ","KM/H - MPH", 7 * " -"
+                                x = float(raw_input("Digite o valor em KM/H: \n"))
+                                print x,"KM/H equivalem a %.3f MPH." %( x * 0.621371 )
+                                print 14 * "-*-"
+                       
+                        # QUILÔMETROS POR HORA EM METROS POR SEGUNDO
+                        elif opc == 2:
+                                print 7 * "- ","KM/H - MPS", 7 * " -"
+                                x = float(raw_input("Digite o valor em KM/H: \n"))
+                                print x,"KM/H equivalem a %.3f MPS." %( x * 0.277778 )
+                                print 14 * "-*-"
+                       
+                        # MILHAS POR HORA EM QUILÔMETROS POR HORA
+                        elif opc == 3:
+                                print 7 * "- ","MPH - KM/H", 7 * " -"
+                                x = float(raw_input("Digite o valor em MPH: \n"))
+                                print x,"MPH equivalem a %.3f KM/H." %( x * 1.609344 )
+                                print 14 * "-*-"
+                       
+                        # MILHAS POR HORA EM METROS POR SEGUNDO
+                        elif opc == 4:
+                                print 7 * "- ","MPH - MPS", 7 * " -"
+                                x = float(raw_input("Digite o valor em MPH: \n"))
+                                print x,"MPH equivalem a %.3f MPS." %( x * 0.44704 )
+                                print 14 * "-*-"
+                       
+                        # METROS POR SEGUNDO EM QUILÔMETROS POR HORA
+                        elif opc == 5:
+                                print 7 * "- ","MPS - KM/H", 7 * " -"
+                                x = float(raw_input("Digite o valor em MPS: \n"))
+                                print x,"MPS equivalem a %.3f KM/H." %( x * 3.6 )
+                                print 14 * "-*-"
+                       
+                        # METROS POR SEGUNDO EM MILHAS POR HORA
+                        elif opc == 6:
+                                print 7 * "- ","MPS - MPH", 7 * " -"
+                                x = float(raw_input("Digite o valor em MPS: \n"))
+                                print x,"MPS equivalem a %.3f MPH." %( x * 2.236936 )
+                                print 14 * "-*-"
+                       
+                        elif opc > 6 or opc < 0:
+                                print 42 * "-"
+                                print "Selecione uma das opções abaixo:"
+                               
+                        elif opc == 0:
+                                break
+       
+        # VOLUME
+        elif opc == 6:
+               
+                while True:
+                        print 17 * "-","Volume", 17 * "-"
+                        print 2*"\t","[1]  Litros - Galões"
+                        print 2*"\t","[2]  Galões - Litros"
+                        print 2*"\t","[0]  Voltar para categorias"
+                        print 42 * "="
+                       
+                        opc = int(raw_input("Digite a conversão desejada: \n"))
+                       
+                        # LITROS POR GALÕES
+                        if opc == 1:
+                                print 6 * "- ","Litros - Galões ", 6 * " -"
+                                x = float(raw_input("Digite o valor em litros: \n"))
+                                print x,"litros equivalem a %.3f galões." %( x * 0.264 )
+                                print 14 * "-*-"
+                       
+                        # GALÕES POR LITROS
+                        elif opc == 2:
+                                print 6 * "- ","Galões - Litros ", 6 * " -"
+                                x = float(raw_input("Digite o valor em galoes: \n"))
+                                print x,"galões equivalem a %.3f litros." %( x * 3.785 )
+                                print 14 * "-*-"
+                       
+                        elif opc > 2 or opc < 0:
+                                print 42 * "-"
+                                print "Selecione uma das opções abaixo:"
+                               
+                        elif opc == 0:
+                                break
+       
+        # RETORNO
+        elif opc > 6 or opc < 0:
+                print 42 * "-"
+                print "Selecione uma das opções abaixo:"
+       
+        # ENCERRAMENTO
+        elif opc == 0:
+                print 15 * "-","finalizado",15 * "-"
+                break
