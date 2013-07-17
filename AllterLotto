@@ -1,0 +1,44 @@
+# -*- coding: cp1252 -*-
+ 
+# ALLTERLOTTO
+        # Gerador de números para apostas em loteria.
+        # Escrita e interpretada com maravilhoso Pythonista, desenvolvida usando um iPad 2 no meio do mato por Steven Castro Conte, estudante de Direito, supervisionado por Gabriel de Souza Costa, estudante de TADS.
+        # Baseado no aplicativo "Random Numbers", embarcado entre os exemplos de código do Pythonista.
+        # Licença Creative Commons 3.0 - Permitida a reprodução total ou parcial, desde que mencionada a autoria.
+ 
+from random import choice
+import console
+console.clear()
+ 
+# FÓRMULA PARA INSERÇÃO DE VALORES
+def input_number(prompt, min_value, max_value):
+        value = None
+        while value is None:
+                try:
+                        value = int(raw_input(prompt))
+                except ValueError:
+                        print "\t Você precisa digitar um número!"
+                if value < min_value or value > max_value:
+                        print ("\t Digite um número entre %i e %i." %
+                               (min_value, max_value))
+                        value = None
+        return value
+ 
+# MENU PRINCIPAL
+while True:
+        print 14 * "=","AllterLotto", 15 * "="
+        minimum = input_number("\t Número mínimo: ", 1, 9999)
+        maximum = input_number("\t Número máximo: ", minimum, 9999)
+        n = input_number("\t Quantos números você precisa? ",
+        1, maximum - minimum + 1)
+       
+        # RETORNO
+        all_numbers = range(minimum, maximum + 1)
+        selection = []
+        for i in xrange(n):
+                r = choice(all_numbers)
+                selection.append(r)
+                all_numbers.remove(r)
+        print "=" * 42
+        print "\t Estes são os seus números da sorte: \n\t ", selection,"\n"
+        continue
