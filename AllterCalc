@@ -1,0 +1,150 @@
+# -*- coding: cp1252 -*-
+ 
+# ALLTERCALC
+        # Calculadora para operações de soma, subtração, divisão, multiplicação, média aritmética, porcentagem, potência, radiciação e equação de segundo grau.
+        # Originalmente escrita com Textatic e interpretada com PyPad (que sempre travava na 1ª execução), desenvolvida usando um iPad 2 no meio do mato por Steven Castro Conte, estudante de Direito, supervisionado por Gabriel de Souza Costa, estudante de TADS. Posteriormente revisada com o maravilhoso Pythonista.
+        # Licença Creative Commons 3.0 - Permitida a reprodução total ou parcial, desde que mencionada a autoria.
+ 
+import math
+import console
+console.clear()
+ 
+# FORMULA RADICIACÃO
+def root( x , y ):
+        n = 0
+        raiz = 0
+        while n <= ( x - 0.02 ):
+                raiz = raiz + 0.01
+                n = raiz
+                n = n ** y
+        return raiz
+ 
+# FORMULA DELTA
+def delta( x , y , z ):
+        d = y ** 2 - ( 4 * x * z )
+        return d
+ 
+# MENU PRINCIPAL
+while True:
+        print 15 * "=","AllterCalc", 15 * "="
+        print 2*"\t","[1]  Soma"
+        print 2*"\t","[2]  Subtração"
+        print 2*"\t","[3]  Divisão"
+        print 2*"\t","[4]  Multiplicação"
+        print 2*"\t","[5]  Media Aritmética"
+        print 2*"\t","[6]  Porcentagem"
+        print 2*"\t","[7]  Potência"
+        print 2*"\t","[8]  Radiciação"
+        print 2*"\t","[9]  Equação de Segundo Grau"
+        print 2*"\t","[0]  Sair"
+        print 42 * "="
+       
+        opc = int(raw_input("Digite a operação desejada: \n"))
+       
+        # SOMA
+        if opc == 1:
+                print 42 * "-"
+                n1 = float(raw_input("Digite o primeiro valor: \n"))
+                n2 = float(raw_input("Digite o segundo valor: \n"))
+                print "A soma dos valores é:",( n1 + n2 )
+                print 14 * "-*-"
+       
+        # SUBTRACÃO
+        elif opc == 2:
+                print 42 * "-"
+                n1 = float(raw_input("Digite o primeiro valor: \n"))
+                n2 = float(raw_input("Digite o segundo valor: \n"))
+                print "A razão dos valores é:",( n1 - n2 )
+                print 14 * "-*-"
+       
+        # DIVISÃO
+        elif opc == 3:
+                print 42 * "-"
+                n1 = float(raw_input("Digite o primeiro valor: \n"))
+                n2 = float(raw_input("Digite o segundo valor: \n"))
+                print "A divisão dos valores é:",( n1 / n2 )
+                print 14 * "-*-"
+       
+        # MULTIPLICAÇÃO
+        elif opc == 4:
+                print 42 * "-"
+                n1 = float(raw_input("Digite o primeiro valor: \n"))
+                n2 = float(raw_input("Digite o segundo valor: \n"))
+                print "A multiplicação dos valores é:",( n1 * n2 )
+                print 14 * "-*-"
+       
+        # MÉDIA
+        elif opc == 5:
+                print 42 * "-"
+                n1 = float(raw_input("Digite o primeiro valor: \n"))
+                n2 = float(raw_input("Digite o segundo valor: \n"))
+                print "A média dos valores é:",( n1 + n2 ) / 2
+                print 14 * "-*-"
+       
+        # PORCENTAGEM
+        elif opc == 6:
+                print 42 * "-"
+                n1 = float(raw_input("Digite o valor: \n"))
+                n2 = float(raw_input("Digite a porcentagem a ser extraída do valor: \n"))
+                print "A porcentagem do valor é:",(( n2 / 100 ) * n1 )
+                print 14 * "-*-"
+       
+        # POTENCIAÇÃO
+        elif opc == 7:
+                print 42 * "-"
+                n1 = float(raw_input("Digite a base: \n"))
+                n2 = float(raw_input("Digite o expoente: \n"))
+                print "A potência do valor é:",( n1 ** n2 )
+                print 14 * "-*-"
+       
+        # RADICIAÇÃO
+        # print math.sqrt(x)
+        elif opc == 8:
+                print 42 * "-"
+                n1 = float(raw_input("Digite o valor radicando: \n"))
+                n2 = int(raw_input("Digite o valor do radiciador: \n"))
+                print "A raiz do valor é: ",root( n1 , n2 )
+                print 14 * "-*-"
+       
+        # EQUAÇÃO DE SEGUNDO GRAU
+        elif opc == 9:
+                print 42 * "-"
+                a = float(raw_input("Digite o valor de A: \n"))
+               
+                if a != 0:
+                        b = float(raw_input("Digite o valor de B: \n"))
+                        c = float(raw_input("Digite o valor de C: \n"))
+                       
+                        if delta( a , b , c ) >= 0:
+                                dlt = root(delta ( a , b , c ) , 2)
+                               
+                                if dlt == 0:
+                                        print "Quando delta for igual a 0 a equação possuirá somente uma raiz."
+                                        x1 = ( -b ) / ( 2 * a )
+                                        print "Raiz: ",x1
+                                        print 14 * "-*-"
+                               
+                                elif dlt > 0:
+                                        x1 = ( -b ) + dlt / ( 2 * a )
+                                        x2 = ( -b ) - dlt / ( 2 * a )
+                                        print "Raiz 1: ",x1
+                                        print "Raiz 2: ",x2
+                                        print 14 * "-*-"
+                       
+                        else:
+                                print "Os valores não possuem raizes reais."
+                                print 14 * "-*-"
+               
+                else:
+                        print "Esta não é uma equação de segundo grau."
+                        print 14 * "-*-"
+       
+        # RETORNO
+        elif opc > 9 or opc < 0:
+                print 42 * "-"
+                print "Selecione uma das opções abaixo:"
+       
+        # ENCERRAMENTO
+        elif opc == 0:
+                print 15 * "-","finalizado",15 * "-"
+                break
