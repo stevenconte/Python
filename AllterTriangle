@@ -1,0 +1,48 @@
+# -*- coding: cp1252 -*-
+ 
+# ALLTERTRIANGLE
+        # Calculadora para determinação e explicação sobre triângulos.
+        # Originalmente escrita com Textatic e interpretada com PyPad (que sempre travava na 1ª execução), desenvolvida usando um iPad 2 no meio do mato por Steven Castro Conte, estudante de Direito, supervisionado por Gabriel de Souza Costa, estudante de TADS. Posteriormente revisada com o maravilhoso Pythonista.
+        # Licença Creative Commons 3.0 - Permitida a reprodução total ou parcial, desde que mencionada a autoria.
+ 
+import math
+import console
+console.clear()
+ 
+lado1 = 1
+ 
+# ENTRADA DE VALORES
+while lado1 > 0:
+        print 13 * "=","AllterTriagle", 14 * "="
+        lado1 = float(raw_input("Digite o valor do primeiro lado: \n"))
+       
+        if lado1 > 0:
+       
+                lado2 = float(raw_input("Digite o valor do segundo lado: \n"))
+                lado3 = float(raw_input("Digite o valor do terceiro lado: \n"))
+       
+                # RESPOSTA POSITIVA E EXPLICACÃO
+                if ((lado1+lado2) > lado3) and ((lado1+lado3) > lado2) and ((lado2+lado3) > lado1):
+                        print 14 * "-*-"
+       
+                        # EQUILATERO
+                        if (lado1==lado2) and (lado2==lado3):
+                                print "TRIÂNGULO EQUILATERO \n \n Um triângulo equilátero possui todos os \n lados congruentes, ou seja, iguais. Um \n triângulo equilatero é também equiângulo: \n todos os seus ângulos internos são \n congruentes (medem 60 graus), sendo,\n portanto, classificados como polígonos \n regulares. \n"
+               
+                        # ISÓSCELES
+                        elif ((lado1!=lado2) and (lado2==lado3)) or ((lado2!=lado1) and (lado1==lado3)) or ((lado3!=lado1) and (lado1==lado2)):
+                                print "TRIÂNGULO ISÓSCELES \n \n Um triângulo isósceles possui pelo menos \n dois lados de mesma medida e dois \n ângulos congruentes. O triângulo \n equilátero é, consequentemente, um caso \n especial de um triângulo isósceles, que \n apresenta não somente dois, mas todos os \n três lados iguais, assim como os ângulos, \n que medem todos 60 graus. Num triângulo \n isósceles, o ângulo formado pelos lados \n congruentes é chamado ângulo do vértice. \n Os demais ângulos denominam-se ângulos \n da base e são congruentes. \n"
+                               
+                        # ESCALENO
+                        elif (lado1!=lado2) and (lado2!=lado3) and (lado3!=lado1):
+                                print "TRIÂNGULO ESCALENO \n \n Em um triângulo escaleno, as medidas dos \n três lados são diferentes. Os ângulos \n internos de um triângulo escaleno também \n possuem medidas diferentes. \n"
+       
+                # RESPOSTA NEGATIVA E EXPLICAÇÃO
+                else:
+                        print 14 * "-*-"
+                        print "NÃO É TRIÂNGULO \n \n Em qualquer triângulo, a medida de um \n lado deve ser sempre menor que a soma \n das medidas dos outros dois lados. \n"
+                        continue
+                       
+        # ENCERRAMENTO
+        else:
+                print 15 * "-","finalizado",15 * "-"
